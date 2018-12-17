@@ -15,7 +15,7 @@ class caculate {
 		}
 
 	}
-	 int square(int a,int b){	
+	int square(int a,int b){	
 		return b==1?a:a*square(a, b-1);
 	}
 
