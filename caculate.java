@@ -15,12 +15,25 @@ class caculate {
 		}
 
 	}
+	 int square(int a,int b){	
+		return b==1?a:a*square(a, b-1);
+	}
 
 	void process(char d) {
 		if(d=='d') System.exit(1); 
 		int mid=0;
 		String resultStr = null;
-		int[]temp=new int[2];	
+		int[]temp=new int[2];
+		while (number.indexOf('^')>=0){
+			mid = number.indexOf("^");
+			temp=process2(mid);
+			deal=deal(temp[0], temp[1], mid, number);
+			resultStr = Integer.toString(square(deal[0],deal[1]));
+			number = number
+					.replace(number.subSequence(deal[2], deal[3]),
+							resultStr);
+			
+		}
 		for(char check:MultiplicationandDivision){
 			while (number.indexOf(check)>=0){		
 				if (number.indexOf("*") >= 0) {
